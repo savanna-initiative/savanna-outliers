@@ -1,1 +1,1 @@
-require_relative 'savanna-decision-trees/savanna-outliers'
+require_relative 'savanna-outliers/savanna-outliers'
