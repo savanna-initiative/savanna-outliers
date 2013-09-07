@@ -13,18 +13,24 @@ module Savanna
     # Core Methods
 
     def outliers?(method = :grubbs)
-      return outliers_grubbs? if method == :grubbs
-      return outliers_chauvenets? if method == :chauvenets
+      case
+        when method == :grubbs then outliers_grubbs?
+        when method == :chauvenets then outliers_chauvenets?
+      end
     end
 
     def max_outlier?(method = :grubbs)
-      return max_outlier_grubbs? if method == :grubbs
-      return max_outlier_chauvenets? if method == :chauvenets
+      case
+        when method == :grubbs then max_outlier_grubbs?
+        when method == :chauvenets then max_outlier_chauvenets?
+      end
     end
 
     def min_outlier?(method = :grubbs)
-      return min_outlier_grubbs? if method == :grubbs
-      return min_outlier_chauvenets? if method == :chauvenets
+      case
+        when method == :grubbs then min_outlier_grubbs?
+        when method == :chauvenets then min_outlier_chauvenets?
+      end
     end
 
     ##
