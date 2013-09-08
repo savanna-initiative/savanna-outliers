@@ -5,26 +5,26 @@ describe 'Savanna Outliers' do
   it 'should identify any outliers existance' do
     array_one = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
     hash_one = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
-    Savanna::Outliers.outliers?(array_one, :all, :grubbs).should == true
-    Savanna::Outliers.outliers?(hash_one, :all, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(array_one, :all, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(hash_one, :all, :grubbs).should == true
   end
 
   it 'should identify max outliers existance' do
     array_one = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
     hash_one = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
-    Savanna::Outliers.outliers?(array_one, :max, :grubbs).should == true
-    Savanna::Outliers.outliers?(hash_one, :max, :grubbs).should == true
-    Savanna::Outliers.outliers?(array_one, :max).should == true
-    Savanna::Outliers.outliers?(hash_one, :max).should == true
+    Savanna::Outliers.any_outliers?(array_one, :max, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(hash_one, :max, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(array_one, :max).should == true
+    Savanna::Outliers.any_outliers?(hash_one, :max).should == true
   end
 
   it 'should identify min outliers existance' do
     array_one = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
     hash_one = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
-    Savanna::Outliers.outliers?(array_one, :min, :grubbs).should == true
-    Savanna::Outliers.outliers?(hash_one, :min, :grubbs).should == true
-    Savanna::Outliers.outliers?(array_one, :min).should == true
-    Savanna::Outliers.outliers?(hash_one, :min).should == true
+    Savanna::Outliers.any_outliers?(array_one, :min, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(hash_one, :min, :grubbs).should == true
+    Savanna::Outliers.any_outliers?(array_one, :min).should == true
+    Savanna::Outliers.any_outliers?(hash_one, :min).should == true
   end
 
   it 'should return max outliers from array' do

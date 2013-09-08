@@ -1,5 +1,4 @@
-$:.unshift File.expand_path('../lib/', __FILE__)
-require 'savanna-outliers/version'
+require File.expand_path('../lib/savanna-outliers/version', __FILE__)
 require 'date'
 
 Gem::Specification.new do |gem|
@@ -12,7 +11,8 @@ Gem::Specification.new do |gem|
   gem.authors = ['Max Makarochkin']
   gem.email = 'maxim.makarochkin@gmail.com'
   gem.homepage = 'https://github.com/savanna-initiative/savanna-outliers'
-  gem.require_paths = ['lib']
+  gem.require_path = 'lib'
+  gem.files = Dir.glob("{lib,spec}/**/*")
   gem.required_ruby_version = '>= 1.9.3'
   gem.add_development_dependency 'bundler'
   gem.add_development_dependency 'rake'
