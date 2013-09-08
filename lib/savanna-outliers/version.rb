@@ -1,5 +1,5 @@
 module Savanna
-  class Outliers
+  module Outliers
   	VERSION = '0.0.1'
   end
 end

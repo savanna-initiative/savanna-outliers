@@ -1,1 +1,1 @@
-require_relative 'savanna-outliers/savanna-outliers'
+require 'savanna-outliers/savanna_outliers'

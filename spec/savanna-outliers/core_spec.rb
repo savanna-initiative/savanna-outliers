@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe 'Savanna Outliers' do
-  before(:all) do
-    @simple_example = Savanna::Outliers.new([1,2,3,4,5,100,200,300])
-    @min_outlier_example = Savanna::Outliers.new([-30,20,25,19,21,22,23,18])
-    @max_outlier_example = Savanna::Outliers.new([100,20,25,19,21,22,23,18])
-    @min_max_outlier_example = Savanna::Outliers.new([100,20,25,19,21,22,23,18,1])
+describe 'Savanna Outliers Core' do
+  before(:each) do
+    @simple_example = Savanna::Outliers::Core.new([1,2,3,4,5,100,200,300])
+    @min_outlier_example = Savanna::Outliers::Core.new([-30,20,25,19,21,22,23,18])
+    @max_outlier_example = Savanna::Outliers::Core.new([100,20,25,19,21,22,23,18])
+    @min_max_outlier_example = Savanna::Outliers::Core.new([100,20,25,19,21,22,23,18,1])
   end
 
   it 'should return array' do
@@ -48,31 +48,53 @@ describe 'Savanna Outliers' do
 
   it 'should identify outliers existance with grubbs' do
     @min_max_outlier_example.outliers_grubbs?.should == true
-    @min_max_outlier_example.outliers?(:grubbs).should == true
+    @min_max_outlier_example.method = :grubbs
+    @min_max_outlier_example.outliers?.should == true
   end
 
   it 'should identify min outlier existance with grubbs' do
     @min_outlier_example.min_outlier_grubbs?.should == true
-    @min_outlier_example.min_outlier?(:grubbs).should == true
+    @min_outlier_example.method = :grubbs
+    @min_outlier_example.min_outlier?.should == true
   end
 
   it 'should identify max outlier existance with grubbs' do
     @max_outlier_example.max_outlier_grubbs?.should == true
-    @max_outlier_example.max_outlier?(:grubbs).should == true
+    @max_outlier_example.method = :grubbs
+    @max_outlier_example.max_outlier?.should == true
   end
 
   it 'should identify outliers existance with chauvenets' do
     @min_max_outlier_example.outliers_chauvenets?.should == true
-    @min_max_outlier_example.outliers?(:chauvenets).should == true
+    @min_max_outlier_example.method = :chauvenets
+    @min_max_outlier_example.outliers?.should == true
   end
 
   it 'should identify min outlier existance with chauvenets' do
     @min_outlier_example.min_outlier_chauvenets?.should == true
-    @min_outlier_example.min_outlier?(:chauvenets).should == true
+    @min_outlier_example.method = :chauvenets
+    @min_outlier_example.min_outlier?.should == true
   end
 
   it 'should identify max outlier existance with chauvenets' do
     @max_outlier_example.max_outlier_chauvenets?.should == true
-    @max_outlier_example.max_outlier?(:chauvenets).should == true
+    @max_outlier_example.method = :chauvenets
+    @max_outlier_example.max_outlier?.should == true
+  end
+
+  it 'should return max outlier' do
+    @max_outlier_example.get_max_outlier.should == 100
+  end
+
+  it 'should return min outlier' do
+    @min_outlier_example.get_min_outlier.should == -30
+  end
+
+  it 'should return max outlier index' do
+    @max_outlier_example.get_max_outlier_index.should == 0
+  end
+
+  it 'should return min outlier index' do
+    @min_outlier_example.get_min_outlier_index.should == 0
   end
 end
