@@ -1,8 +1,82 @@
 ### [Savanna Outliers: Plug & Play Anomaly Detection](https://github.com/savanna-initiative/savanna-outliers.git)
 
-    This is a preliminary release for internal review.
-    The official release will be announced later.
-    Any suggestion for modification is welcome.
+This package allows to detect outliers using Grubb's test and Chauvanet's criterion.
+
+#### Installation
+
+```
+gem install savanna-outliers
+```
+
+#### Usage
+
+```ruby
+require 'savanna-outliers'
+
+##
+# Get max outliers from array
+
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
+Savanna::Outliers.get_outliers(some_array, :max, :grubbs) # => [5000, 1100, 1000]
+
+##
+# Get min outliers from array
+
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
+Savanna::Outliers.get_outliers(some_array, :min, :grubbs) # => [-5000, -1100, -1000]
+
+##
+# Get all outliers from array
+
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 1000, 12, 10, 9]
+Savanna::Outliers.get_outliers(some_array, :all, :grubbs) # => [1000, -1000]
+
+##
+# Get max outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
+Savanna::Outliers.get_outliers(some_hash, :max, :grubbs) # => {n: 5000, l: 1100, i: 1000}
+
+##
+# Get min outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
+Savanna::Outliers.get_outliers(some_hash, :min, :grubbs) # => {n: -5000, l: -1100, i: -1000}
+
+##
+# Get all outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 1000, k: 12, l: 10, m: 9}
+Savanna::Outliers.get_outliers(some_hash, :all, :grubbs) # => {j: 1000, i: -1000}
+
+##
+# Remove max outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
+Savanna::Outliers.remove_outliers(some_array, :max, :grubbs) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+
+##
+# Remove min outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
+Savanna::Outliers.remove_outliers(some_array, :min, :grubbs) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+
+##
+# Remove all outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 1000, 12, 10, 9]
+Savanna::Outliers.remove_outliers(some_array, :all, :grubbs) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+
+##
+# Remove max outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
+Savanna::Outliers.remove_outliers(some_hash, :max, :grubbs) # => {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, j: 12, k: 10, m: 9}
+
+##
+# Remove min outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
+Savanna::Outliers.remove_outliers(some_hash, :min, :grubbs) # => {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, j: 12, k: 10, m: 9}
+
+##
+# Remove all outliers from hash
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 1000, k: 12, l: 10, m: 9}
+Savanna::Outliers.remove_outliers(some_hash, :all, :grubbs) # => {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, k: 12, l: 10, m: 9}
+
+```
 
 ### License
 
