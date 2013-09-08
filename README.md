@@ -1,5 +1,9 @@
 ### [Savanna Outliers: Plug & Play Anomaly Detection](https://github.com/savanna-initiative/savanna-outliers.git)
 
+[![Code Climate](https://codeclimate.com/github/savanna-initiative/savanna-outliers.png)](https://codeclimate.com/github/savanna-initiative/savanna-outliers)
+[![Build Status](https://travis-ci.org/savanna-initiative/savanna-outliers.png?branch=master)](https://travis-ci.org/savanna-initiative/savanna-outliers)
+[![Dependency Status](https://gemnasium.com/savanna-initiative/savanna-outliers.png)](https://gemnasium.com/savanna-initiative/savanna-outliers)
+
 This package allows to detect outliers using Grubb's test for outliers. Supports hashes and arrays as inputs.
 
 Grubb's test (named after Frank E. Grubbs), also known as the maximum normed residual test or extreme studentized deviate test, is a statistical test used to detect outliers in a univariate data set assumed to come from a normally distributed population.
@@ -26,17 +30,17 @@ require 'savanna-outliers'
 ##
 # Identify any outliers existance
 some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
-Savanna::Outliers.outliers?(some_array, :all) # => true
+Savanna::Outliers.any_outliers?(some_array, :all) # => true
 
 ##
 # Identify max outliers existance
 some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
-Savanna::Outliers.outliers?(some_array, :max) # => true
+Savanna::Outliers.any_outliers?(some_array, :max) # => true
 
 ##
 # Identify min outliers existance
 some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
-Savanna::Outliers.outliers?(some_array, :min) # => true
+Savanna::Outliers.any_outliers?(some_array, :min) # => true
 ```
 
 #### Getting Outliers
@@ -84,17 +88,17 @@ Savanna::Outliers.remove_outliers(some_array, :min) # => [10, 12, 8, 11, 9, 13, 
 ##
 # Identify any outliers existance
 some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
-Savanna::Outliers.outliers?(some_hash, :all) # => true
+Savanna::Outliers.any_outliers?(some_hash, :all) # => true
 
 ##
 # Identify max outliers existance
 some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
-Savanna::Outliers.outliers?(some_hash, :max) # => true
+Savanna::Outliers.any_outliers?(some_hash, :max) # => true
 
 ##
 # Identify min outliers existance
 some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
-Savanna::Outliers.outliers?(some_hash, :min) # => true
+Savanna::Outliers.any_outliers?(some_hash, :min) # => true
 ```
 
 #### Getting Outliers
