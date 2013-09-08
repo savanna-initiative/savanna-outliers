@@ -3,6 +3,17 @@ require 'savanna-outliers/core'
 module Savanna
   module Outliers
     self.extend Savanna::Outliers
+    def outliers?(dataset, type = :all, method = :grubbs)
+      case
+        when (dataset.class == Array && type == :all) then Core.new(dataset, method).outliers?
+        when (dataset.class == Array && type == :max) then Core.new(dataset, method).max_outlier?
+        when (dataset.class == Array && type == :min) then Core.new(dataset, method).min_outlier?
+        when (dataset.class == Hash  && type == :all) then Core.new(dataset.values, method).outliers?
+        when (dataset.class == Hash  && type == :max) then Core.new(dataset.values, method).max_outlier?
+        when (dataset.class == Hash  && type == :min) then Core.new(dataset.values, method).min_outlier?
+      end
+    end
+
     def get_outliers(dataset, type = :all, method = :grubbs)
       case
         when (dataset.class == Array && type == :all) then get_all_outliers_from_array(dataset, method)

@@ -16,6 +16,27 @@ Require package at the beginning of the document:
 require 'savanna-outliers'
 ```
 
+### Arrays
+
+#### Discovering Outliers in Array
+
+```ruby
+##
+# Identify any outliers existance
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
+Savanna::Outliers.outliers?(some_array, :all) # => true
+
+##
+# Identify max outliers existance
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
+Savanna::Outliers.outliers?(some_array, :max) # => true
+
+##
+# Identify min outliers existance
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
+Savanna::Outliers.outliers?(some_array, :min) # => true
+```
+
 #### Getting Outliers from Array
 
 ```ruby
@@ -35,6 +56,45 @@ some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
 Savanna::Outliers.get_outliers(some_array, :min) # => [-5000, -1100, -1000]
 ```
 
+#### Removing Outliers from Array
+```ruby
+##
+# Remove all outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 1000, 12, 10, 9]
+Savanna::Outliers.remove_outliers(some_array, :all) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+
+##
+# Remove max outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
+Savanna::Outliers.remove_outliers(some_array, :max) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+
+##
+# Remove min outliers from array
+some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
+Savanna::Outliers.remove_outliers(some_array, :min) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
+```
+
+### Hashes
+
+#### Discovering Outliers
+
+```ruby
+##
+# Identify any outliers existance
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
+Savanna::Outliers.outliers?(some_hash, :all) # => true
+
+##
+# Identify max outliers existance
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: 1000, j: 12, k: 10, l: 1100, m: 9, n: 5000}
+Savanna::Outliers.outliers?(some_hash, :max) # => true
+
+##
+# Identify min outliers existance
+some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
+Savanna::Outliers.outliers?(some_hash, :min) # => true
+```
+
 #### Getting Outliers from Hash
 
 ```ruby
@@ -52,24 +112,6 @@ Savanna::Outliers.get_outliers(some_hash, :max) # => {n: 5000, l: 1100, i: 1000}
 # Get min outliers from hash
 some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 12, k: 10, l: -1100, m: 9, n: -5000}
 Savanna::Outliers.get_outliers(some_hash, :min) # => {n: -5000, l: -1100, i: -1000}
-```
-
-#### Removing Outliers from Array
-```ruby
-##
-# Remove all outliers from array
-some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 1000, 12, 10, 9]
-Savanna::Outliers.remove_outliers(some_array, :all) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
-
-##
-# Remove max outliers from array
-some_array = [10, 12, 8, 11, 9, 13, 12, 10, 1000, 12, 10, 1100, 9, 5000]
-Savanna::Outliers.remove_outliers(some_array, :max) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
-
-##
-# Remove min outliers from array
-some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
-Savanna::Outliers.remove_outliers(some_array, :min) # => [10, 12, 8, 11, 9, 13, 12, 10, 12, 10, 9]
 ```
 
 #### Removing Outliers from Hash
