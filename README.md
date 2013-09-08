@@ -1,6 +1,8 @@
 ### [Savanna Outliers: Plug & Play Anomaly Detection](https://github.com/savanna-initiative/savanna-outliers.git)
 
-This package allows to detect outliers using Grubb's test and Chauvanet's criterion.
+This package allows to detect outliers using Grubb's test for outliers. Supports hashes and arrays as inputs.
+
+Grubb's test (named after Frank E. Grubbs), also known as the maximum normed residual test or extreme studentized deviate test, is a statistical test used to detect outliers in a univariate data set assumed to come from a normally distributed population.
 
 #### Installation
 
@@ -10,7 +12,7 @@ gem install savanna-outliers
 
 #### Usage
 
-Require package at the beginning of the document:
+Require package at the beginning of the document.
 
 ```ruby
 require 'savanna-outliers'
@@ -18,7 +20,7 @@ require 'savanna-outliers'
 
 ### Arrays
 
-#### Discovering Outliers in Array
+#### Discovering Outliers
 
 ```ruby
 ##
@@ -37,7 +39,7 @@ some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
 Savanna::Outliers.outliers?(some_array, :min) # => true
 ```
 
-#### Getting Outliers from Array
+#### Getting Outliers
 
 ```ruby
 ##
@@ -56,7 +58,7 @@ some_array = [10, 12, 8, 11, 9, 13, 12, 10, -1000, 12, 10, -1100, 9, -5000]
 Savanna::Outliers.get_outliers(some_array, :min) # => [-5000, -1100, -1000]
 ```
 
-#### Removing Outliers from Array
+#### Removing Outliers
 ```ruby
 ##
 # Remove all outliers from array
@@ -95,7 +97,7 @@ some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 
 Savanna::Outliers.outliers?(some_hash, :min) # => true
 ```
 
-#### Getting Outliers from Hash
+#### Getting Outliers
 
 ```ruby
 ##
@@ -114,7 +116,7 @@ some_hash = {a: 10, b: 12, c: 8, d: 11, e: 9, f: 13, g: 12, h: 10, i: -1000, j: 
 Savanna::Outliers.get_outliers(some_hash, :min) # => {n: -5000, l: -1100, i: -1000}
 ```
 
-#### Removing Outliers from Hash
+#### Removing Outliers
 ```ruby
 ##
 # Remove max outliers from hash
