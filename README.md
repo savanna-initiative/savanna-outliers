@@ -2,7 +2,6 @@
 
 [![Code Climate](https://codeclimate.com/github/savanna-initiative/savanna-outliers.png)](https://codeclimate.com/github/savanna-initiative/savanna-outliers)
 [![Build Status](https://travis-ci.org/savanna-initiative/savanna-outliers.png?branch=master)](https://travis-ci.org/savanna-initiative/savanna-outliers)
-[![Dependency Status](https://gemnasium.com/savanna-initiative/savanna-outliers.png)](https://gemnasium.com/savanna-initiative/savanna-outliers)
 
 This package allows to detect outliers using Grubb's test for outliers. Supports hashes and arrays as inputs.
 
