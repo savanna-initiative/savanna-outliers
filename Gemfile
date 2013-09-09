@@ -1,3 +1,7 @@
 source 'http://rubygems.org'
 
-gemspec
+gem 'bundler'
+gem 'rake'
+gem 'rspec'
+gem 'descriptive_statistics'
+gem 'statistics2'
