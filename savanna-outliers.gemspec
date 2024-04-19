@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_dependency 'descriptive_statistics'
-  gem.add_dependency 'statistics2'
+  gem.add_dependency 'statistics3'
 end
