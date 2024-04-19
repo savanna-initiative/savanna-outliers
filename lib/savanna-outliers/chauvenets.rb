@@ -3,12 +3,12 @@ module Savanna
     module Chauvenets
       def chauvenets_criterion_min
         delta = (mean - array.min).abs
-        (1/standard_deviation)*Statistics2.normaldist((delta - mean)/standard_deviation)*size
+        (1/standard_deviation)*Statistics3.normaldist((delta - mean)/standard_deviation)*size
       end
 
       def chauvenets_criterion_max
         delta = (mean - array.max).abs
-        (1/standard_deviation)*Statistics2.normaldist((delta - mean)/standard_deviation)*size
+        (1/standard_deviation)*Statistics3.normaldist((delta - mean)/standard_deviation)*size
       end
 
       def outliers_chauvenets?

@@ -15,14 +15,14 @@ module Savanna
 
       def grubbs_two_sided_test(n = size, alpha = 0.05)
         a = (n - 1)/Math.sqrt(n)
-        t = Statistics2.ptdist(n-2,alpha/(2*n))**2
+        t = Statistics3.ptdist(n-2,alpha/(2*n))**2
         b = Math.sqrt( t/(n-2+t) )
         a*b
       end
 
       def grubbs_one_sided_test(n = size, alpha = 0.05)
         a = (n - 1)/Math.sqrt(n)
-        t = Statistics2.ptdist(n-2,alpha/n)**2
+        t = Statistics3.ptdist(n-2,alpha/n)**2
         b = Math.sqrt( t/(n-2+t) )
         a*b
       end

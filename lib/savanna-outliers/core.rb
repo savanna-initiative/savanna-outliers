@@ -1,5 +1,5 @@
 require 'descriptive_statistics/safe'
-require 'statistics2'
+require 'statistics3'
 require 'savanna-outliers/general_parameters'
 require 'savanna-outliers/grubbs'
 require 'savanna-outliers/chauvenets'

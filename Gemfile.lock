@@ -1,25 +1,34 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    awesome_print (1.9.2)
+    colorize (0.8.1)
     descriptive_statistics (2.5.1)
-    diff-lcs (1.2.5)
-    rake (10.4.2)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.1)
-      rspec-support (~> 3.4.0)
-    rspec-expectations (3.4.0)
+    diff-lcs (1.5.1)
+    psych (2.2.4)
+    rake (13.2.1)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-support (3.4.1)
-    statistics2 (0.54)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    semver2 (3.4.2)
+    statistics3 (0.0.5)
+      awesome_print (~> 1)
+      colorize (~> 0)
+      psych (~> 2)
+      semver2 (~> 3)
 
 PLATFORMS
+  arm64-darwin-23
   ruby
 
 DEPENDENCIES
@@ -27,7 +36,7 @@ DEPENDENCIES
   descriptive_statistics
   rake
   rspec
-  statistics2
+  statistics3
 
 BUNDLED WITH
-   1.10.6
+   2.5.9
